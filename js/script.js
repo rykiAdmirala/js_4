@@ -1,7 +1,7 @@
 $(function tabs() {
   var $tabLinks = $('.tabs-block').find('.tabs-head a');
   var $tabBlocks = $('.tabs-block').find('.tabs-item');
-  
+
 
   $tabLinks.each(function(i) {
     $(this).attr('tab-id', i);
@@ -9,7 +9,7 @@ $(function tabs() {
   $tabBlocks.each(function(i) {
     $(this).attr('tab-id', i);
   });
-  
+
   
   $tabLinks.on('click', function(e) {
     e.preventDefault();
@@ -22,8 +22,12 @@ $(function tabs() {
       if ($(this).attr('tab-id') == index) {
         $(this).addClass('active').siblings('.tabs-item').removeClass('active');
       }
-    });    
+    });
   });
     
     
+});
+
+$(function toolTip() {
+  
 });
