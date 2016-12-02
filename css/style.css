@@ -11,8 +11,8 @@ body {
     margin: 0 auto;
 }
 .tabs-block {
+    max-width: 600px;
     margin: 30px auto;
-    width: 60%;
 }
 .tabs-head {
     list-style: none;
@@ -61,4 +61,31 @@ body {
 .tooltip {
     position: absolute;
     display: none;
+}
+.tooltip-block {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px 55px 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: inset 0 0 6px 1px rgba(0,0,0,.2);
+    box-sizing: border-box;
+}
+.tooltip-block .row {
+    margin: 15px 0;
+    padding: 0 0 15px;
+    border-bottom: 1px solid #eee;
+}
+.tooltip-block label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 150px;
+}
+.tooltip-block input {
+    border: 1px solid #ccc;
+}
+.tooltip-block input:focus {
+    background: #fffef5;
+    outline: none;
 }
