@@ -1,21 +1,33 @@
 $(function tooltip() {
+  var showall;
   var $tooltipItem = $('.tooltip-block').find('[tooltip]'); // Elements for which we are making tooltip
 
-  $tooltipItem.on('mouseenter focusin mouseleave focusout', showHideTooltip);
-  $('.click').on('click', setFocus);
+  $tooltipItem.on('mouseenter focusin', showTooltip);
+  $tooltipItem.on('mouseleave focusout', hideTooltip);
+  $('.showall').on('click', showAllTooltip);
 
 
-  function showHideTooltip() {
+  function showTooltip() {
     var $tooltip = $(this).next('.tooltip');
+    var arg = arguments[0];
 
-    if ( !$tooltip.length) { // If there is no tooltip
+    if ( !$tooltip.length || arg == showall) {
+      // If there is no tooltip OR no tooltip AN
+
       var tooltipText = $(this).attr('tooltip');
 
       $('<span class="tooltip">' + tooltipText + '</span>')
                   .insertAfter($(this))
                   .fadeIn(250);
 
-    } else if ( !( $(this).is(':focus') || $(this).is(':hover') ) ) { // Excluding from condition focus and hover states of tooltip'ed item 
+    }
+  }
+
+  function hideTooltip() {
+    var $tooltip = $(this).next('.tooltip');
+     
+    if ( !( $(this).is(':focus') || $(this).is(':hover') ) ) {
+      // Making tooltip NOT to disappear on focused or hovered tooltip'ed item
 
       $tooltip
         .stop(true)
@@ -23,18 +35,14 @@ $(function tooltip() {
           $(this).remove();
         });
 
-    } else if ($(this).is(':hover')) {
-      console.log('succ')
     }
+
   }
 
-
-  function setFocus() {
+  function showAllTooltip() {
     $tooltipItem.each(function() {
-           
-      $(this).trigger('mouseenter');      
-
-    })
+      showTooltip.call($(this), showall);
+    });
   }
-
+  
 });
