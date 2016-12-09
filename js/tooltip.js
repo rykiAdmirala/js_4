@@ -7,27 +7,27 @@ $(function tooltip() {
   $('.showall').on('click', showAllTooltip);
 
 
-  function showTooltip() {
+  function showTooltip(showall) {
     var $tooltip = $(this).next('.tooltip');
-    var arg = arguments[0];
 
-    if ( !$tooltip.length || arg == showall) {
-      // If there is no tooltip OR no tooltip AN
+
+    if ( !$tooltip.length || (!$tooltip.length && showall) ) {
+      // If there is no tooltip OR function is called by 'Show All Tooltips' button
+     console.log('show');
 
       var tooltipText = $(this).attr('tooltip');
 
       $('<span class="tooltip">' + tooltipText + '</span>')
                   .insertAfter($(this))
                   .fadeIn(250);
-
     }
   }
 
   function hideTooltip() {
     var $tooltip = $(this).next('.tooltip');
-     
     if ( !( $(this).is(':focus') || $(this).is(':hover') ) ) {
       // Making tooltip NOT to disappear on focused or hovered tooltip'ed item
+     console.log('hide');
 
       $tooltip
         .stop(true)
@@ -36,12 +36,11 @@ $(function tooltip() {
         });
 
     }
-
   }
 
   function showAllTooltip() {
     $tooltipItem.each(function() {
-      showTooltip.call($(this), showall);
+      showTooltip.call($(this), 'showall');
     });
   }
   
