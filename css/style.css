@@ -79,10 +79,12 @@ body {
     width: 200px;
 }
 .tooltip-block input {
+    padding: 0 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: inset 1px 1px 5px 0 rgba(0,0,0,.1);
-    line-height: 21px;
+    box-sizing: border-box;
+    line-height: 23px;
 }
 .tooltip-block input:focus {
     background: #fffef5;
@@ -96,6 +98,7 @@ body {
     background: #f3edc0;
     border: 2px solid #e4dda9;
     border-radius: 5px;
+    font-size: 13px;
 }
 .tooltip:after, .tooltip:before {
     content: '';
@@ -115,4 +118,26 @@ body {
     border-right-color: #e4dda9;
     border-width: 8px;
     margin-top: -8px;
+}
+.showall {
+    margin: 5px 0 0;
+    padding: 0 15px;
+    background: linear-gradient(#01de01, #01a501);
+    border: 1px solid #04b904;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 17px;
+    text-shadow: 1px 1px 2px rgba(51, 51, 51, .5);
+    line-height: 30px;
+    cursor: pointer;
+}
+.showall:hover {
+    background: linear-gradient(#01ce01, #04b304);
+}
+.showall:active {
+    background: linear-gradient(to top, #01ce01, #04b304);
+}
+.showall:active,
+.showall:focus {
+    outline: none;
 }
